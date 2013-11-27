@@ -29,7 +29,7 @@ class plantilla{
 				unset($$key);
 			}
 			$this->mihtml=str_replace ("\'", "'", $this->mihtml);
-			return $this->mihtml;
+			echo $this->mihtml;
 		}
 	}
 }
@@ -38,7 +38,6 @@ function sostenedor_error($error){
 	$miplantilla->asigna_variables(array(
 		'ERROR' => $error)
 	);
-    
 	return $miplantilla->muestra();
 }
 ?>
