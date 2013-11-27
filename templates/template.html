@@ -1,0 +1,69 @@
+<!DOCTYPE>
+<html>
+    <head lang="es">
+        <title>Inicio</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="templates/css/stylesheet.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">       
+             var x = $(document);
+             x.ready(iniciar);
+            
+            function iniciar(){
+                var content = $("#content");
+                var nav = $("nav");
+                content.css("top", nav.css("height"));
+                var sesion2 =$("#iniciarSesion");
+                sesion2.mouseenter(ventanaIniciarSesion);
+                var sesion =$("#formIniciarSesion");
+                sesion.mouseleave(ventanaIniciarSesion);
+                
+            }
+            
+            function ventanaIniciarSesion(){                
+                var x = $("#formIniciarSesion");
+                var y = $("#iniciarSesion");
+                var z = $("nav");
+                x.css("left",((y.width()/2)+y.offset().left)-x.width()/2); 
+                x.css("top", z.css("height"));
+                x.slideToggle("fast");       
+            }
+            
+        </script>
+    </head>
+    <body>
+        <header>
+            <div id="nombrePagina">
+                <h1 id="nombrePaginaH" class="menuText"><a href="#">Imp.bool</a></h1>
+            </div>
+            <nav>
+                <ul id="navList">
+                    <li id="navItem"><a class="menuText" href="#">Inicio</a></li>
+                    <li id="navItem"><a class="menuText" href="#">Quiénes somos</a></li>
+                    <li id="navItem"><a class="menuText"href="#">Cómo funciona</a></li>
+                    <li id="navItem"><a id="iniciarSesion" class="menuText" href="#" onclick="ventanaIniciarSesion()" >Iniciar sesion</a><div class="sesion" id="formIniciarSesion" display="inblock">
+                        <form>
+                            <input id="input" name="nombreUsuario" type="text" placeholder="Usuario" required>
+                            <br>
+                            <input id="input" name="contraseña" type="password" placeholder="Contraseña" required>
+                            <br>
+                            <input id="button" type="button" value="Entrar">
+                        </form>
+                        <a class="menuText">Olvidaste la contraseña?</a>
+                        <br>
+                        <a class="menuText">No tienes usuario?</a>
+                        </div></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="content">
+            <div id="body">
+                {miVariable}
+            </div>
+            
+        </div>
+        
+        <footer>
+        </footer>
+    </body>
+</html>
