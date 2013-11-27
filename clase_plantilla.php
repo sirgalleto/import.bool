@@ -29,7 +29,7 @@ class plantilla{
 				unset($$key);
 			}
 			$this->mihtml=str_replace ("\'", "'", $this->mihtml);
-			echo $this->mihtml;
+			return $this->mihtml;
 		}
 	}
 }
