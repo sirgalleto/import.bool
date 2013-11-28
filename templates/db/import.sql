@@ -95,20 +95,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `import`.`notificacion`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `import`.`notificacion` ;
-
-CREATE TABLE IF NOT EXISTS `import`.`notificacion` (
-  `id` VARCHAR(15) NOT NULL,
-  `fecha` DATE NOT NULL,
-  `mensaje` TEXT NULL,
-  `estado` TINYINT(1) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `import`.`servicio`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `import`.`servicio` ;
@@ -126,12 +112,10 @@ CREATE TABLE IF NOT EXISTS `import`.`servicio` (
   `cliente_id` VARCHAR(20) NOT NULL,
   `administrador_id` VARCHAR(20) NOT NULL,
   `estado_pedido_id` INT NOT NULL,
-  `notificacion_id` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_servicio_cliente1_idx` (`cliente_id` ASC),
   INDEX `fk_servicio_administrador1_idx` (`administrador_id` ASC),
   INDEX `fk_servicio_estado_pedido1_idx` (`estado_pedido_id` ASC),
-  INDEX `fk_servicio_notificacion1_idx` (`notificacion_id` ASC),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   CONSTRAINT `fk_servicio_cliente1`
     FOREIGN KEY (`cliente_id`)
@@ -146,11 +130,6 @@ CREATE TABLE IF NOT EXISTS `import`.`servicio` (
   CONSTRAINT `fk_servicio_estado_pedido1`
     FOREIGN KEY (`estado_pedido_id`)
     REFERENCES `import`.`estado_pedido` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_servicio_notificacion1`
-    FOREIGN KEY (`notificacion_id`)
-    REFERENCES `import`.`notificacion` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -211,6 +190,27 @@ CREATE TABLE IF NOT EXISTS `import`.`mensaje` (
   CONSTRAINT `fk_mensaje_ticket1`
     FOREIGN KEY (`ticket_id`)
     REFERENCES `import`.`ticket` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `import`.`notificacion`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `import`.`notificacion` ;
+
+CREATE TABLE IF NOT EXISTS `import`.`notificacion` (
+  `id` VARCHAR(15) NOT NULL,
+  `fecha` DATE NOT NULL,
+  `mensaje` TEXT NULL,
+  `estado` TINYINT(1) NULL,
+  `servicio_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_notificacion_servicio1_idx` (`servicio_id` ASC),
+  CONSTRAINT `fk_notificacion_servicio1`
+    FOREIGN KEY (`servicio_id`)
+    REFERENCES `import`.`servicio` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

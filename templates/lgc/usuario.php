@@ -6,11 +6,11 @@ class usuario(){
     private $contraseña;
     private $correoElectronico;
     
-    public function getnombreUsuario(){
+    public function getNombreUsuario(){
 		return $this->nombreUsuario;
 	}
 
-	public function setnombreUsuario($nombreUsuario){
+	public function setNombreUsuario($nombreUsuario){
 		$this->nombreUsuario = $nombreUsuario;
 	}
 
@@ -47,6 +47,7 @@ class usuario(){
 	}
     
     public function crear(){
+        
     }
     
     public function obtener(){
