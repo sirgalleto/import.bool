@@ -13,6 +13,7 @@
                 var content = $("#content");
                 var nav = $("nav");
                 content.css("top", nav.css("height"));
+
                 var sesion2 =$("#iniciarSesion");
                 sesion2.mouseenter(ventanaIniciarSesion);
                 var sesion =$("#formIniciarSesion");
@@ -34,24 +35,24 @@
     <body>
         <header>
             <div id="nombrePagina">
-                <h1 id="nombrePaginaH" class="menuText"><a href="#">Imp.bool</a></h1>
+                <h1 id="nombrePaginaH" class="menuText"><a href="index.php">Imp.bool</a></h1>
             </div>
             <nav>
                 <ul id="navList">
-                    <li id="navItem"><a class="menuText" href="#">Inicio</a></li>
+                    <li id="navItem"><a class="menuText" href="index.php">Inicio</a></li>
                     <li id="navItem"><a class="menuText" href="#">Quiénes somos</a></li>
                     <li id="navItem"><a class="menuText"href="#">Cómo funciona</a></li>
                     <li id="navItem"><a id="iniciarSesion" class="menuText" href="#" onclick="ventanaIniciarSesion()" >Iniciar sesion</a><div class="sesion" id="formIniciarSesion" display="inblock">
-                        <form>
-                            <input id="input" name="nombreUsuario" type="text" placeholder="Usuario" required>
+                        <form style:"z-index:2;">
+                            <input id="inputSesion" class="input"name="nombreUsuario" type="text" placeholder="Usuario" required>
                             <br>
-                            <input id="input" name="contraseña" type="password" placeholder="Contraseña" required>
+                            <input id="inputSesion" class="input" name="contraseña" type="password" placeholder="Contraseña" required>
                             <br>
-                            <input id="button" type="button" value="Entrar">
+                            <input id="buttonSesion" class="button" type="button" value="Entrar">
                         </form>
-                        <a class="menuText">Olvidaste la contraseña?</a>
+                        <a class="menuText"  href"#" >Olvidaste la contraseña?</a>
                         <br>
-                        <a class="menuText">No tienes usuario?</a>
+                        <a  class="menuText" href="registroUsuario.php">No tienes usuario? ¡Registrate!</a>
                         </div></li>
                 </ul>
             </nav>

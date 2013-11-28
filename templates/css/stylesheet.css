@@ -1,10 +1,12 @@
 header{
+    z-index:2;
     top:0;
     right:0;
     width:100%;
     position:fixed;
     display:inline-block;
-    background-color:rgba(223, 223, 227,0.9);
+    background-color: rgba(0, 89, 154,0.8);
+    border-bottom: 3px solid rgba(0, 89, 154, 0.82);
 }
 #nombrePagina{
     margin: 10px 0px 0px 20px;
@@ -12,6 +14,7 @@ header{
     display:inline-block;
 }
 #nombrePaginaH{
+    font-family:rieslingregular;
     font-size:45px;
     display:inline;
 }
@@ -22,7 +25,7 @@ nav{
 }
 #navItem{
     color: black; 
-    font-size: 30px;
+    font-size: 28px;
     display: inline;
     list-style-type: none;
 }
@@ -33,39 +36,54 @@ nav ul li{
     padding: 0px 20px 10px 20px;
 }
 .menuText{
-    font-family:rieslingregular;
+    font-family:amaranthregular;
     color:black;
 }
 #formIniciarSesion{
-    z-index:5;
+    background-color:white;
     font-size:10pt;
     padding: 20px 20px 20px 20px;
     display:none;
     width: 20%;
-    height: 250%;
+    height: 280%;
     text-align:center;
     box-shadow: 0px 0px 4px rgba(0,0,0,0.6);
     position:absolute;
 }
-#input{
-    padding:10px;
-    border-radius:none;
-        font-family:rieslingregular;
-
-    width: 90%;
-    margin-bottom:18px;
+#inputSesion{
+    width: 80%;
     font-size: 12px;
 }
-#button{
+.input{
+    margin-bottom:18px;
+    padding:10px;
+    border-radius:none;
+    font-family:amaranthregular;
+
+}
+#inputRegistro{
+    width:40%;
+    font-size: 15px;
+
+}
+
+.button{
     border-radius:none;
     border:none;
-    border-bottom: 1px solid gray;
-    background-color:rgba(223, 223, 227,0.9);
-    font-family:rieslingregular;
-    width: 50%;
+    border-bottom: 2px solid rgba(70, 175, 82, 1);
+    background-color:rgba(70, 175, 82, 0.65);
+    font-family:amaranthregular;
     padding: 8px 0px 8px 0px;
-    font-size: 20px;
 }
+#buttonSesion{
+    font-size: 18px;
+    width: 50%;
+}
+#buttonRegistro{
+    font-size: 20px;
+    width: 30%;
+}
+
 
 a:link{
     text-decoration:none;
@@ -76,30 +94,49 @@ a:visited{
     color: black;
 }
 #content{
+    position:absolute;
     text-align:center;
     right:0;
-    position:absolute;
     width: 100%;
-    background-color: rgba(223, 223, 227,0.1);
-
+    background-color: rgba(238, 234, 227, 0.4);
 }
 #body{
-    text-align:justify;
+    text-align:center;
     display:inline-block;
-    width: 80%;
+    width: 70%;
+    padding-top: 2%;
 }
 
 footer{
-position:absolute;
+    position:absolute;
 }
+
 @font-face {
     font-family: 'rieslingregular';
     src: url('fonts/riesling-webfont.eot');
     src: url('fonts/riesling-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/riesling-webfont.woff') format('woff'),
-         url('fonts/riesling-webfont.ttf') format('truetype'),
-         url('fonts/riesling-webfont.svg#rieslingregular') format('svg');
+    url('fonts/riesling-webfont.woff') format('woff'),
+    url('fonts/riesling-webfont.ttf') format('truetype'),
+    url('fonts/riesling-webfont.svg#rieslingregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'amaranthregular';
+    src: url('fonts/amaranth-regular-webfont.eot');
+    src: url('fonts/amaranth-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/amaranth-regular-webfont.woff') format('woff'),
+    url('fonts/amaranth-regular-webfont.ttf') format('truetype'),
+    url('fonts/amaranth-regular-webfont.svg#amaranthregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
