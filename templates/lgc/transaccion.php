@@ -2,12 +2,26 @@
 require "cliente.php"
 
 class transaccion extends cliente(){
-    private $id;
+    private $nombreUsuario;
     
-    public function crearTicket cliente(){
+    public function getnombreUsuario(){
+		return $this->nombreUsuario;
+	}
+
+	public function setnombreUsuario($nombreUsuario){
+		$this->nombreUsuario = $nombreUsuario;
+	}
+    
+    public function crear(){
     }
     
-    public function crearServicio(){
+    public function obtener(){
+    }
+    
+    public function actualizar(){
+    }
+    
+    public function borrar(){
     }
 }
 ?>

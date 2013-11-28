@@ -2,13 +2,16 @@
 require "administrador.php"
 
 class superAdministrador extends administrador(){
-    public function crearAdministrador(){
+    public function crear(){
     }
     
-    public function buscarAdministrador(){
+    public function obtener(){
     }
     
-    public function eliminarAdministrador(){
+    public function actualizar(){
+    }
+    
+    public function borrar(){
     }
 }
 ?>
