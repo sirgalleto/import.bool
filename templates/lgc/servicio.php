@@ -1,47 +1,24 @@
 <?php
 class servicio(){
-    private $notificacion;
-    private $ticket;
-    private $cliente;
-    private $administrador;
+    private $id;
     private $pedido;
-    private $informacionPedido;
+    private $infopedido;
     private $precioArticulo;
     private $precioServicio;
     private $precioTotal;
     private $fechaPedido;
-    private $nombreUsuario;
+    private $fechaFinal;
+    private $otraInfo;
+    private $cliente_id;
+    private $administrador_id;
+    private $estado_pedido_id;
     
-    public function getNotificacion(){
-		return $this->notificacion;
+    public function getId(){
+		return $this->id;
 	}
 
-	public function setNotificacion($notificacion){
-		$this->notificacion = $notificacion;
-	}
-
-	public function getTicket(){
-		return $this->ticket;
-	}
-
-	public function setTicket($ticket){
-		$this->ticket = $ticket;
-	}
-
-	public function getCliente(){
-		return $this->cliente;
-	}
-
-	public function setCliente($cliente){
-		$this->cliente = $cliente;
-	}
-
-	public function getAdministrador(){
-		return $this->administrador;
-	}
-
-	public function setAdministrador($administrador){
-		$this->administrador = $administrador;
+	public function setId($id){
+		$this->id = $id;
 	}
 
 	public function getPedido(){
@@ -52,12 +29,12 @@ class servicio(){
 		$this->pedido = $pedido;
 	}
 
-	public function getInformacionPedido(){
-		return $this->informacionPedido;
+	public function getInfopedido(){
+		return $this->infopedido;
 	}
 
-	public function setInformacionPedido($informacionPedido){
-		$this->informacionPedido = $informacionPedido;
+	public function setInfopedido($infopedido){
+		$this->infopedido = $infopedido;
 	}
 
 	public function getPrecioArticulo(){
@@ -92,12 +69,44 @@ class servicio(){
 		$this->fechaPedido = $fechaPedido;
 	}
 
-	public function getnombreUsuario(){
-		return $this->nombreUsuario;
+	public function getFechaFinal(){
+		return $this->fechaFinal;
 	}
 
-	public function setnombreUsuario($nombreUsuario){
-		$this->nombreUsuario = $nombreUsuario;
+	public function setFechaFinal($fechaFinal){
+		$this->fechaFinal = $fechaFinal;
+	}
+
+	public function getOtraInfo(){
+		return $this->otraInfo;
+	}
+
+	public function setOtraInfo($otraInfo){
+		$this->otraInfo = $otraInfo;
+	}
+
+	public function getClienteId(){
+		return $this->clienteId;
+	}
+
+	public function setClienteId($clienteId){
+		$this->clienteId = $clienteId;
+	}
+
+	public function getAdministradorId(){
+		return $this->administradorId;
+	}
+
+	public function setAdministradorId($administradorId){
+		$this->administradorId = $administradorId;
+	}
+
+	public function getEstadoPedidoId(){
+		return $this->estadoPedidoId;
+	}
+
+	public function setEstadoPedidoId($estadoPedidoId){
+		$this->estadoPedidoId = $estadoPedidoId;
 	}
     
     public function crear(){

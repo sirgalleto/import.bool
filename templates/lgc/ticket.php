@@ -1,49 +1,67 @@
 <?php
 class ticket(){
-    private $nombreUsuario;
-    private $fechaMensaje;
-    private $fechaRespuesta;
-    private $cliente;
-    private $administrador;
+    private $id;
+    private $asunto;
+    private $estado;
+    private $fechaInicio;
+    private $fechaFinal;
+    private $cliente_nombreUsuario;
+    private $administrador_nombreUsuario;
     
-    public function getnombreUsuario(){
-		return $this->nombreUsuario;
+    public function getId(){
+		return $this->id;
 	}
 
-	public function setnombreUsuario($nombreUsuario){
-		$this->nombreUsuario = $nombreUsuario;
+	public function setId($id){
+		$this->id = $id;
 	}
 
-	public function getFechaMensaje(){
-		return $this->fechaMensaje;
+	public function getAsunto(){
+		return $this->asunto;
 	}
 
-	public function setFechaMensaje($fechaMensaje){
-		$this->fechaMensaje = $fechaMensaje;
+	public function setAsunto($asunto){
+		$this->asunto = $asunto;
 	}
 
-	public function getFechaRespuesta(){
-		return $this->fechaRespuesta;
+	public function getEstado(){
+		return $this->estado;
 	}
 
-	public function setFechaRespuesta($fechaRespuesta){
-		$this->fechaRespuesta = $fechaRespuesta;
+	public function setEstado($estado){
+		$this->estado = $estado;
 	}
 
-	public function getCliente(){
-		return $this->cliente;
+	public function getFechaInicio(){
+		return $this->fechaInicio;
 	}
 
-	public function setCliente($cliente){
-		$this->cliente = $cliente;
+	public function setFechaInicio($fechaInicio){
+		$this->fechaInicio = $fechaInicio;
 	}
 
-	public function getAdministrador(){
-		return $this->administrador;
+	public function getFechaFinal(){
+		return $this->fechaFinal;
 	}
 
-	public function setAdministrador($administrador){
-		$this->administrador = $administrador;
+	public function setFechaFinal($fechaFinal){
+		$this->fechaFinal = $fechaFinal;
+	}
+
+	public function getClienteNombreUsuario(){
+		return $this->clienteNombreUsuario;
+	}
+
+	public function setClienteNombreUsuario($clienteNombreUsuario){
+		$this->clienteNombreUsuario = $clienteNombreUsuario;
+	}
+
+	public function getAdministradorNombreUsuario(){
+		return $this->administradorNombreUsuario;
+	}
+
+	public function setAdministradorNombreUsuario($administradorNombreUsuario){
+		$this->administradorNombreUsuario = $administradorNombreUsuario;
 	}
     
     public function crear(){

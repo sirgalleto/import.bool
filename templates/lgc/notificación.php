@@ -1,31 +1,49 @@
 <?php
 class notificacion(){
-    private $nombreUsuario;
-    private $administrador;
-    private $usuario;
+    private $id;
+    private $fecha;
+    private $mensaje;
+    private $estado;
+    private $servicio_id;
     
-    public function getnombreUsuario(){
-		return $this->nombreUsuario;
+    public function getId(){
+		return $this->id;
 	}
 
-	public function setnombreUsuario($nombreUsuario){
-		$this->nombreUsuario = $nombreUsuario;
+	public function setId($id){
+		$this->id = $id;
 	}
 
-	public function getAdministrador(){
-		return $this->administrador;
+	public function getFecha(){
+		return $this->fecha;
 	}
 
-	public function setAdministrador($administrador){
-		$this->administrador = $administrador;
+	public function setFecha($fecha){
+		$this->fecha = $fecha;
 	}
 
-	public function getUsuario(){
-		return $this->usuario;
+	public function getMensaje(){
+		return $this->mensaje;
 	}
 
-	public function setUsuario($usuario){
-		$this->usuario = $usuario;
+	public function setMensaje($mensaje){
+		$this->mensaje = $mensaje;
+	}
+
+	public function getEstado(){
+		return $this->estado;
+	}
+
+	public function setEstado($estado){
+		$this->estado = $estado;
+	}
+
+	public function getServicioId(){
+		return $this->servicioId;
+	}
+
+	public function setServicioId($servicioId){
+		$this->servicioId = $servicioId;
 	}
     
     public function crear(){
