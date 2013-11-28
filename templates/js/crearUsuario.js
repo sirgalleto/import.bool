@@ -1,4 +1,4 @@
-/*document.ready(crearUsuario());
+document.ready(crearUsuario());
 function crearUsuario(){
     $("#formularioRegistro").submit(function(event){
         event.preventDefault();
@@ -37,4 +37,4 @@ function sendRegistro(){
 function confirmacion(data){
     $("#mensajeRegistro").text(data);
 }
-*/
+
