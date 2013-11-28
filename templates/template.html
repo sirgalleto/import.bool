@@ -6,8 +6,8 @@
         <link type="text/css" rel="stylesheet" href="templates/css/stylesheet.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript">       
-             var x = $(document);
-             x.ready(iniciar);
+            var x = $(document);
+            x.ready(iniciar);
             
             function iniciar(){
                 var content = $("#content");
@@ -31,6 +31,99 @@
             }
             
         </script>
+        <script>
+            $(document).on("ready", setSesion);
+            function setSesion(){
+                if(localStorage.getItem("nombreUsuario_importBool")){
+                    loadAnswer();
+                }
+                else{
+                    loadForm();
+                }
+            }
+            function loadAnswer(){
+                $("#mensaje").text("Sesion Iniciada");
+            }
+            fuction loadForm(){
+                $("#formIniciarSesion").load("templates/iniciarSesion.html",function(){
+                    $("iniciarSesion").on("submint",function(e){
+                        e.preventDefault();
+                        sendData();
+                        $("#mensaje").text("Cargando...");
+                    }));
+                });
+            }
+
+            function sendData(){
+                var nombreUsuario = $("[name= 'nombreUsuario']").val();
+                var contrasena = $("[name='contraseña']").val();
+                $.ajax({
+                    data:"nombreUsuario="+nombreUsuario+"&contraseña="+contrasena,
+                    type: "POST",
+                    datatype: "json",
+                    url: "",
+                    success: function(data){
+                        saveStorage(data);
+                    }
+
+                });
+                function saveStorage(data){
+                    if(data = "error"){
+                        $("#mensaje").text("Error");
+                    }
+                    else{
+                        if(localStorage){
+                            localStorage.setItem("nombreUsuario_importBool",data["nombreUsuario"]);
+                        }
+                        else{
+                            alert("Por favor actualiza tu navegador");
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <script>
+            document.on("ready", crearUsuario());
+            function crearUsuario(){
+                $($formularioRegistro).on("submint",function(e){
+                    e.preventDefault();
+                    sendRegistro();
+                    $("#mensajeRegistro").text("Cargando...");
+                });
+
+                function sendRegistro(){
+                    var nombreUsuario = $("[name = 'nombreUsuarioRegistro']").val();
+                    var nombres = $("[name = 'nombres']").val();
+                    var apellidos = $("[name = 'apellidos']").val());
+                    var correoElectronico = $("name = 'correoElectronico'").val();
+                    var contrasena1 = $("[name = 'contraseña1']").val();
+                    var contrasena2 = $("[name = 'contraseña2']").val();
+                    if(contrasena1 == contrasena2){
+                        var direccion = $("[name]='direccion'");
+                        var telefono = $("[name] = 'telefono'");
+                        var celular = $("[name] = 'celular'");
+                        $.ajax({
+                            data:"nombreUsuario="+nombreUsuario+" &nombres="+nombres+" &apellidos="+apellidos+" &correoElectronico="+correoElectronico+" &contraseña="+contrasena1+" &direccion= "+direccion+" &telefono="+telefono+" &celular="+celular,
+                            type: "POST",
+                            datatype: "json",
+                            url: "",
+                            success: function(data){
+                                saveStorage(data);
+                            }
+
+                        });
+                    }
+                    else{
+                        $("#mensajeRegistro").text("Las contraseñas no coinciden");
+
+                    }
+
+                }
+            }
+
+
+        </script>
     </head>
     <body>
         <header>
@@ -43,17 +136,7 @@
                     <li id="navItem"><a class="menuText" href="#">Quiénes somos</a></li>
                     <li id="navItem"><a class="menuText"href="#">Cómo funciona</a></li>
                     <li id="navItem"><a id="iniciarSesion" class="menuText" href="#" onclick="ventanaIniciarSesion()" >Iniciar sesion</a><div class="sesion" id="formIniciarSesion" display="inblock">
-                        <form style:"z-index:2;">
-                            <input id="inputSesion" class="input"name="nombreUsuario" type="text" placeholder="Usuario" required>
-                            <br>
-                            <input id="inputSesion" class="input" name="contraseña" type="password" placeholder="Contraseña" required>
-                            <br>
-                            <input id="buttonSesion" class="button" type="button" value="Entrar">
-                        </form>
-                        <a class="menuText"  href"#" >Olvidaste la contraseña?</a>
-                        <br>
-                        <br>
-                        <a  class="menuText" href="registroUsuario.php">¿No tienes usuario? ¡Registrate!</a>
+
                         </div></li>
                 </ul>
             </nav>
