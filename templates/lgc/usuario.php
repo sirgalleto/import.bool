@@ -6,8 +6,8 @@ class usuario(){
     private $apellidos;
     private $contraseña;
     private $correoElectronico;
-    
-    public function consultarCliente(){
+
+    public function consultarUsuario(){
     }
 }
 ?>

@@ -11,6 +11,7 @@ $contenidoFormulario= $Formulario->muestra();
 
     $string ="hola";
 $Contenido->asigna_variables(array(
+    "titulo" => "Registro",
     "miVariable" => $contenidoFormulario
 ));
 $ContenidoString = $Contenido->muestra();//$ContenidoString contiene nuestra plantilla, ya con las variables asignadas, f·cil no?

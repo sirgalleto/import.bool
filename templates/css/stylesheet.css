@@ -15,7 +15,7 @@ header{
 }
 #nombrePaginaH{
     font-family:rieslingregular;
-    font-size:45px;
+    font-size:34pt;
     display:inline;
 }
 nav{
@@ -25,7 +25,7 @@ nav{
 }
 #navItem{
     color: black; 
-    font-size: 28px;
+    font-size: 21pt;
     display: inline;
     list-style-type: none;
 }
@@ -52,7 +52,7 @@ nav ul li{
 }
 #inputSesion{
     width: 80%;
-    font-size: 12px;
+    font-size: 9pt;
 }
 .input{
     margin-bottom:18px;
@@ -63,7 +63,7 @@ nav ul li{
 }
 #inputRegistro{
     width:40%;
-    font-size: 15px;
+    font-size: 11pt;
 
 }
 
@@ -76,11 +76,11 @@ nav ul li{
     padding: 8px 0px 8px 0px;
 }
 #buttonSesion{
-    font-size: 18px;
+    font-size: 13.5pt;
     width: 40%;
 }
 #buttonRegistro{
-    font-size: 20px;
+    font-size: 14.5pt;
     width: 25%;
 }
 
@@ -90,7 +90,7 @@ fieldset{
 }
 legend{
     font-family:amaranthregular;
-    font-size:18px;
+    font-size:13.5pt;
     text-align:left;
     margin-left:80px;
     margin-bottom:25px;
