@@ -2,7 +2,7 @@
 class plantilla{
     
 	function plantilla($template_file){
-		$this->tpl_file = 'templates/' . $template_file . '.html';
+		$this->tpl_file = 'templates/' . $template_file;
 	}
 	function asigna_variables($vars){
 		$this->vars= (empty($this->vars)) ? $vars : $this->vars . $vars;

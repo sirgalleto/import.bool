@@ -1,15 +1,12 @@
 <?
-
 include("clase_plantilla.php");
 
-$Contenido=new Plantilla("template");//al Pasar como parametro Prueba, asumimos que en la carpeta 	plantillas existe un archivo de nombre Prueba.tpl
+$Contenido=new Plantilla("template.html");//al Pasar como parametro Prueba, asumimos que en la carpeta 	plantillas existe un archivo de nombre Prueba.tpl
 
-$Formulario = new Plantilla("registroUsuario");
-$Formulario->asigna_variables(array(
-));
+$Formulario = new Plantilla("registroUsuario.html");
+$Formulario->asigna_variables(array());
+
 $contenidoFormulario= $Formulario->muestra();
-
-    $string ="hola";
 $Contenido->asigna_variables(array(
     "titulo" => "Registro",
     "miVariable" => $contenidoFormulario

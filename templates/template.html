@@ -19,39 +19,32 @@
                 var sesion =$("#formIniciarSesion");
                 sesion.mouseleave(ventanaIniciarSesion);
                 
-            }
-            
-            function ventanaIniciarSesion(){                
-                var x = $("#formIniciarSesion");
-                var y = $("#iniciarSesion");
-                var z = $("nav");
-                x.css("left",((y.width()/2)+y.offset().left)-x.width()/2); 
-                x.css("top", z.css("height"));
-                x.slideToggle("fast");       
-            }
-            
-        </script>
-        <script>
-            $(document).on("ready", setSesion);
-            function setSesion(){
+                //Sesion
                 if(localStorage.getItem("nombreUsuario_importBool")){
                     loadAnswer();
                 }
                 else{
                     loadForm();
                 }
+                function loadForm(){
+                    $("#formIniciarSesion").load("templates/iniciarSesion.html",function(){
+                        $(".iniciarSesion").submit(function(event){
+                            event.preventDefault();
+                            sendData();
+                            $("#mensaje").text("Cargando...");
+                        });
+                    });
+                }
+            //Enviar Formulario de Registro
+                 $("#formularioRegistro").submit(function(event){
+                    event.preventDefault();
+                    alert("si");
+                    sendRegistro();
+                    $("#mensajeRegistro").text("Cargando...");
+            })
             }
             function loadAnswer(){
                 $("#mensaje").text("Sesion Iniciada");
-            }
-            fuction loadForm(){
-                $("#formIniciarSesion").load("templates/iniciarSesion.html",function(){
-                    $("iniciarSesion").on("submint",function(e){
-                        e.preventDefault();
-                        sendData();
-                        $("#mensaje").text("Cargando...");
-                    }));
-                });
             }
 
             function sendData(){
@@ -81,48 +74,51 @@
                     }
                 }
             }
-        </script>
 
-        <script>
-            document.on("ready", crearUsuario());
-            function crearUsuario(){
-                $($formularioRegistro).on("submint",function(e){
-                    e.preventDefault();
-                    sendRegistro();
-                    $("#mensajeRegistro").text("Cargando...");
-                });
+            //Ventana de sesion
+            function ventanaIniciarSesion(){
+                var x = $("#formIniciarSesion");
+                var y = $("#iniciarSesion");
+                var z = $("nav");
+                x.css("left",((y.width()/2)+y.offset().left)-x.width()/2);
+                x.css("top", z.css("height"));
+                x.slideToggle("fast");
+            }
 
-                function sendRegistro(){
-                    var nombreUsuario = $("[name = 'nombreUsuarioRegistro']").val();
-                    var nombres = $("[name = 'nombres']").val();
-                    var apellidos = $("[name = 'apellidos']").val());
-                    var correoElectronico = $("name = 'correoElectronico'").val();
-                    var contrasena1 = $("[name = 'contraseña1']").val();
-                    var contrasena2 = $("[name = 'contraseña2']").val();
-                    if(contrasena1 == contrasena2){
-                        var direccion = $("[name]='direccion'");
-                        var telefono = $("[name] = 'telefono'");
-                        var celular = $("[name] = 'celular'");
-                        $.ajax({
-                            data:"nombreUsuario="+nombreUsuario+" &nombres="+nombres+" &apellidos="+apellidos+" &correoElectronico="+correoElectronico+" &contraseña="+contrasena1+" &direccion= "+direccion+" &telefono="+telefono+" &celular="+celular,
-                            type: "POST",
-                            datatype: "json",
-                            url: "",
-                            success: function(data){
-                                saveStorage(data);
-                            }
-
-                        });
-                    }
-                    else{
-                        $("#mensajeRegistro").text("Las contraseñas no coinciden");
-
-                    }
-
+            //****************************************************************************
+            //Formulario de Registro
+            function sendRegistro(){
+                var nombreUsuario = $("[name = 'nombreUsuarioRegistro']").val();
+                var nombres = $("[name = 'nombres']").val();
+                var apellidos = $("[name = 'apellidos']").val();
+                var correoElectronico = $("name = 'correoElectronico'").val();
+                var contrasena1 = $("[name = 'contraseña1']").val();
+                var contrasena2 = $("[name = 'contraseña2']").val();
+                if(contrasena1 == contrasena2){
+                    var direccion = $("[name]='direccion'");
+                    var telefono = $("[name] = 'telefono'");
+                    var celular = $("[name] = 'celular'");
+                    $.ajax({
+                        data:"nombreUsuario="+nombreUsuario+" &nombres="+nombres+" &apellidos="+apellidos+" &correoElectronico="+correoElectronico+" &contraseña="+contrasena1+" &direccion= "+direccion+" &telefono="+telefono+" &celular="+celular,
+                        type: "POST",
+                        datatype: "json",
+                        url: "",
+                        success: function(data){
+                            confirmacion(data);
+                        }
+                    });
+                }
+                else{
+                    $("#mensajeRegistro").text("Las contraseñas no coinciden");
                 }
             }
 
+            function confirmacion(data){
+                $("#mensajeRegistro").text(data);
+            }
 
+
+            //********************************************************************
         </script>
     </head>
     <body>
